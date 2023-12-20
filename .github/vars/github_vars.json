@@ -1,0 +1,52 @@
+{
+  "envs":
+  {
+    "dev" : 
+    {
+      "ENV_NAME": "dev",
+      "TERRAFORM_WORKING_DIRECTORY_ENVS": "infrastructure/terraform/envs",
+      "RG_NAME": "azrg-[#LZ_NAME_LOWER#]-d",
+      "ST_NAME": "azstd[#LZ_NAME_LOWER#]01",
+      "CT_NAME": "azctd[#LZ_NAME_LOWER#]01",
+      "KV_DEV_NAME": "kv-[#LZ_NAME_LOWER#]-d-01"
+    },
+  
+    "prod" :
+    {
+      "ENV_NAME": "prod",
+      "TERRAFORM_WORKING_DIRECTORY_ENVS": "infrastructure/terraform/envs",
+      "RG_NAME": "azrg-[#LZ_NAME_LOWER#]-p",
+      "ST_NAME": "azstp[#LZ_NAME_LOWER#]01",
+      "CT_NAME": "azctp[#LZ_NAME_LOWER#]01",
+    },
+
+    "root" :
+    {
+      "ENV_NAME":"root",
+      "SP_CONTACT_EMAIL": "william.anseaume@totalenergies.com",
+      "AD_GROUP_OWNER_1": "AL1022275@tdf.hubtotal.net",
+      "AD_GROUP_OWNER_2": "AJ0351726@tdf.hubtotal.net",
+      "RG_ROOT_LOCATION": "northeurope",
+      "ROOT_RG_NAME": "azrg-[#LZ_NAME_LOWER#]-r",
+      "ROOT_ST_NAME": "stroot[#LZ_NAME_LOWER#]",
+      "ROOT_CT_NAME": "ctroot[#LZ_NAME_LOWER#]",
+      "ROOT_KV_NAME": "kv-root-[#LZ_NAME_LOWER#]",
+      "AZURE_COST_CLI_HTML_REPORT_FILENAME": "AzureCostCli.html",
+      "AZURE_COST_CLI_MD_REPORT_FILENAME": "AzureCostCli.md",
+      "TERRAFORM_WORKING_DIRECTORY_BOOTSTRAP": "infrastructure/terraform/bootstrap",
+      "TERRAFORM_WORKING_DIRECTORY_ROOT": "infrastructure/terraform/root",
+      "ACR_LOGIN_SECRETKEY": "ACR-LOGIN",
+      "ACR_SECRET_SECRETKEY": "ACR-SECRET",
+      "ACR_URL": "acr[#LZ_NAME_LOWER#].azurecr.io",
+      "IMAGE_NAME": "actions-ephemeral-runner",
+      "ACI_NAME": "azr-r-[#LZ_NAME_LOWER#]-aci-runner"
+    },
+    
+    "repository" : 
+    {
+      "LZ_NAME": "Oups",
+      "LZ_NAME_LOWER": "oups",
+      "TERRAFORM_VERSION": "1.5.7"
+    }
+  }
+}

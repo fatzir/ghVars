@@ -1,0 +1,38 @@
+name: 🔥 Bootstrap Test
+run-name: '🔥 Bootstrap Test'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - ghVars
+
+concurrency:
+  group: environment-bootstrap
+
+permissions:
+  id-token: write
+  contents: write
+  security-events: write
+
+jobs:
+  init-vars:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: 🌱 Checkout
+        uses: actions/checkout@v3
+
+      - name: 🗝️ Generate token for GitHub App
+        id: generate-token
+        uses: getsentry/action-github-app-token@v2.0.0
+        with:
+          app_id: ${{ secrets.GH_APP_ID }}
+          private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: 📝 Load json to GitHub vars
+        shell: pwsh
+        run: |
+          ./.github/scripts/load-json-to-ghvars.ps1 -path_to_file "./.github/vars/github_vars.json" -repository ${{ github.repository }}
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
